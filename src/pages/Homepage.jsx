@@ -1,3 +1,4 @@
+import { RobotCard } from "../components";
 import useRobots from "../hooks/useRobots";
 
 const Homepage = () => {
@@ -20,9 +21,9 @@ const Homepage = () => {
   }
 
   return (
-    <div>
+    <div className="grid grid-cols-2  gap-8 p-4 md:grid-cols-3 lg:grid-cols-4">
       {robots.map((r) => {
-        return <div key={r.id}>{r.title}</div>;
+        return <RobotCard key={r.id} robot={r} />;
       })}
     </div>
   );
