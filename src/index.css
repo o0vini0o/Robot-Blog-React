@@ -1,4 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Orbitron:wght@400..900&display=swap");
 @import "tailwindcss";
+@theme {
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-momo: "JetBrains Mono", monospace;
+}
 @plugin "daisyui" {
   themes: business --default;
 }

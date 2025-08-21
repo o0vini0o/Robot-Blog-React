@@ -1,12 +1,16 @@
 import { Route, Routes } from "react-router";
+import MainLayout from "./layouts/MainLayout";
+import { Homepage } from "./pages";
+import { RobotsContextProvider } from "./contexts/robotsContext";
 function App() {
   return (
-    <div>
-      <div>
-        <input type="text" className="input input-secondary" />
-        <button className="btn btn-secondary text-2xl">add</button>
-      </div>
-    </div>
+    <RobotsContextProvider>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Homepage />} />
+        </Route>
+      </Routes>
+    </RobotsContextProvider>
   );
 }
 
