@@ -6,6 +6,7 @@ export const RobotsContextProvider = ({ children }) => {
   const [robots, setRobots] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(null);
+
   useEffect(() => {
     const getData = async () => {
       try {
