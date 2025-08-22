@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { RobotCard } from "../components";
 import useRobots from "../hooks/useRobots";
 
@@ -13,11 +14,19 @@ const Homepage = () => {
     );
   }
   if (err) {
-    return <div>Error: {err.message || "Something went wrong"}</div>;
+    return (
+      <div className="alert alert-error shadow-lg w-full max-w-md mx-auto mt-10">
+        <span>Fehler: {err.message || "Etwas ist schiefgelaufen"}</span>
+      </div>
+    );
   }
 
   if (!robots || robots.length === 0) {
-    return <div>No robots found.</div>;
+    return (
+      <div className="alert alert-info shadow-lg w-full max-w-md mx-auto mt-10">
+        <span>Keine Roboter-Beiträge gefunden.</span>
+      </div>
+    );
   }
 
   return (
@@ -28,4 +37,5 @@ const Homepage = () => {
     </div>
   );
 };
+
 export default Homepage;

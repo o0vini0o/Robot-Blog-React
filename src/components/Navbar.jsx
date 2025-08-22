@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -15,8 +15,10 @@ const Navbar = () => {
             ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ
           </p>
         </div>
-        <div className="flex-none">
-          <button className="btn btn-primary rounded-2xl">➕</button>
+          <div className="flex-none">
+          <Link to="/create" className="btn btn-primary rounded-2xl">
+            ➕
+          </Link>
         </div>
       </nav>
     </header>
