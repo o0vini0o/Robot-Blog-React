@@ -9,7 +9,7 @@ export default function CreateBlog() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.title || !form.content || !form.cover) {
+    if (!form.title || !form.content ) {
       alert("Alle Felder sind erforderlich!");
       return;
     }
