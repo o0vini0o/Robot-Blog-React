@@ -16,8 +16,8 @@ const Navbar = () => {
           </p>
         </div>
         <div className="flex-none">
-          <Link to="/create" className="btn btn-primary rounded-2xl">
-            ➕
+          <Link to="/create" className="btn btn-soft btn-secondary text-3xl font-orbitron font-extrabold">
+            ADD ROBOT
           </Link>
         </div>
       </nav>

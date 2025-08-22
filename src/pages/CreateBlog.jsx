@@ -10,7 +10,7 @@ export default function CreateBlog() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.title || !form.content ) {
-      alert("Alle Felder sind erforderlich!");
+      alert("All fields must contain values");
       return;
     }
     await createPost(form);
@@ -22,11 +22,11 @@ export default function CreateBlog() {
       <div className="flex flex-col items-center gap-6 mt-10">
         <div className="alert alert-success shadow-lg w-full max-w-md">
           <div>
-            <span>Post wurde erfolgreich erstellt!</span>
+            <span>Post successfully created</span>
           </div>
         </div>
-        <Link to="/" replace className="btn btn-secondary btn-wide">
-          Zurück zur Startseite
+        <Link to="/" replace className="btn btn-soft btn-secondary text-3xl font-orbitron font-extrabold">
+          Back to Homepage
         </Link>
       </div>
     );
@@ -36,33 +36,42 @@ export default function CreateBlog() {
     <div className="flex justify-center mt-10">
       <div className="card w-full max-w-lg bg-base-200 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title justify-center mb-4">
-            Erstellen Sie einen neuen Beitrag über den Roboter
+          <h2 className="card-title justify-center mb-4 text-3xl font-orbitron font-extrabold">
+            Create a new robot post
           </h2>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input
               type="text"
-              placeholder="Titel"
+              placeholder="Robot Title"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
               className="input input-bordered w-full"
             />
             <input
               type="text"
-              placeholder="Cover Image URL"
+              placeholder="Cover Robot Image URL"
               value={form.cover}
               onChange={(e) => setForm({ ...form, cover: e.target.value })}
               className="input input-bordered w-full"
             />
             <textarea
-              placeholder="Inhalt"
+              placeholder="Robot Content"
               value={form.content}
               onChange={(e) => setForm({ ...form, content: e.target.value })}
               className="textarea textarea-bordered w-full min-h-[120px]"
             />
-            <div className="card-actions justify-end">
-              <button type="submit" className="btn btn-primary">
-                ➕ Erstellen
+            <div className="card-actions justify-between">
+              <Link
+                to="/"
+                className="btn btn-soft btn-secondary text-3xl font-orbitron font-extrabold"
+              >
+                Cancel
+              </Link>
+              <button
+                type="submit"
+                className="btn btn-soft btn-secondary text-3xl font-orbitron font-extrabold"
+              >
+                Create
               </button>
             </div>
           </form>
