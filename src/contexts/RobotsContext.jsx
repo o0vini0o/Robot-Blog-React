@@ -9,27 +9,27 @@ export const RobotsContextProvider = ({ children }) => {
 
   const API_URL = "http://localhost:3000/robots";
 
-    const fetchPosts = async () => {
-      setIsLoading(true);
-      try {
-        const res = await fetch(API_URL);
-        if (!res.ok) {
-          throw new Error("Error fetching data");
-        }
-        const data = await res.json();
-        setRobots(data.data || []);
-      } catch (error) {
-        setErr(error);
-      } finally {
-        setIsLoading(false);
+  const fetchPosts = async () => {
+    setIsLoading(true);
+    try {
+      const res = await fetch(API_URL);
+      if (!res.ok) {
+        throw new Error("Error fetching data");
       }
-    };
+      const data = await res.json();
+      setRobots(data.results || []);
+    } catch (error) {
+      setErr(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const fetchPostById = async (id) => {
     const res = await fetch(`${API_URL}/${id}`);
     if (!res.ok) throw new Error("Post nicht gefunden");
     const data = await res.json();
-    return data.data;
+    return data.results;
   };
 
   const createPost = async (post) => {
@@ -39,7 +39,7 @@ export const RobotsContextProvider = ({ children }) => {
       body: JSON.stringify(post),
     });
     const newPost = await res.json();
-    setRobots((prev) => [...prev, newPost]); 
+    setRobots((prev) => [...prev, newPost]);
     return newPost;
   };
 
@@ -50,9 +50,7 @@ export const RobotsContextProvider = ({ children }) => {
       body: JSON.stringify(post),
     });
     const updated = await res.json();
-    setRobots((prev) =>
-      prev.map((r) => (r.id === id ? updated : r))
-    );
+    setRobots((prev) => prev.map((r) => (r.id === id ? updated : r)));
     return updated;
   };
 
@@ -66,7 +64,19 @@ export const RobotsContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <RobotsContext.Provider value={{ robots, setRobots, isLoading, err, fetchPosts, fetchPostById, createPost, updatePost, deletePost }}>
+    <RobotsContext.Provider
+      value={{
+        robots,
+        setRobots,
+        isLoading,
+        err,
+        fetchPosts,
+        fetchPostById,
+        createPost,
+        updatePost,
+        deletePost,
+      }}
+    >
       {children}
     </RobotsContext.Provider>
   );
