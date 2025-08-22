@@ -44,7 +44,7 @@ const Details = () => {
 
   const handleUpdate = () => {
     console.log(`Update Roboter ${id}`);
-    navigate(`/robot/${id}/edit`); // ← Zur Edit-Seite navigieren
+    navigate(`/robots/${id}/edit`); // ← Zur Edit-Seite navigieren
   };
 
   const handleDelete = async () => {
