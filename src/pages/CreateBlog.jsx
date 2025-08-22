@@ -1,8 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import RobotsContext from "../contexts/RobotsContext";
-import {Homepage} from "./index";
-
 
 export default function CreateBlog() {
   const { createPost } = useContext(RobotsContext);
@@ -27,10 +25,10 @@ export default function CreateBlog() {
             <span>Post wurde erfolgreich erstellt!</span>
           </div>
         </div>
-          <Link to="/" replace className="btn btn-secondary btn-wide">
+        <Link to="/" replace className="btn btn-secondary btn-wide">
           Zurück zur Startseite
-          </Link>
-        </div>
+        </Link>
+      </div>
     );
   }
 
