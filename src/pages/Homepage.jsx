@@ -3,6 +3,8 @@ import useRobots from "../hooks/useRobots";
 
 const Homepage = () => {
   const { robots, isLoading, err } = useRobots();
+  console.log(robots);
+
   if (isLoading) {
     return (
       <div className="flex justify-center">
@@ -30,8 +32,8 @@ const Homepage = () => {
 
   return (
     <div className="grid grid-cols-1 gap-8 p-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {[...robots].reverse().map((r) => {
-        return <RobotCard key={r.id} robot={r} />;
+      {robots.map((robot) => {
+        return <RobotCard key={robot.id} robot={robot} />;
       })}
     </div>
   );
