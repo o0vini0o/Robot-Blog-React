@@ -5,7 +5,7 @@ const RobotCard = ({ robot }) => {
 
   return (
     <div
-      className="card bg-secondary rounded-3xl"
+      className="card bg-secondary rounded-3xl hover:scale-105"
       onClick={() => navigate(`/robots/${robot.id}`)}
     >
       <figure className="w-full h-56 overflow-hidden">
