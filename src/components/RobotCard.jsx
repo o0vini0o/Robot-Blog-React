@@ -17,7 +17,9 @@ const RobotCard = ({ robot }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title font-orbitron">{robot.title}</h2>
-        <p className="text-white font-momo line-clamp-2">{robot.content}</p>
+        <p className="text-white font-momo line-clamp-2 overflow-hidden leading-6">
+          {robot.content}
+        </p>
       </div>
     </div>
   );
