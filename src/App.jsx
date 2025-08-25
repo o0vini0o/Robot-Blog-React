@@ -12,7 +12,7 @@ function App() {
         <Route index element={<Homepage />} />
         <Route path="create" element={<CreateBlog />} />
         <Route path="robots/:id" element={<Details />} />
-        <Route path="robots/:id/edit" element={<EditBlog />} />  
+        <Route path="robots/:id/edit" element={<EditBlog />} />
       </Route>
     </Routes>
   );
