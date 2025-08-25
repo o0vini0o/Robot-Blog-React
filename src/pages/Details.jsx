@@ -137,17 +137,33 @@ const Details = () => {
                       {/* Zusätzliche Infos */}
                       <div className="mt-6 text-sm opacity-70 space-y-1">
                         <p>
-                          <span className="font-semibold">Autor:</span>{" "}
-                          {robot.author || "Unbekannt"}
+                          <span className="font-semibold">author:</span>{" "}
+                          {robot.author || "Mr.Place.Holder"}
                         </p>
                         <p>
-                          <span className="font-semibold">Erstellt:</span>{" "}
-                          {robot.date
-                            ? new Date(robot.date).toLocaleDateString("de-DE", {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                              })
+                          <span className="font-semibold">Created:</span>{" "}
+                          {robot.createdAt
+                            ? new Date(robot.createdAt).toLocaleDateString(
+                                "de-DE",
+                                {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric",
+                                }
+                              )
+                            : "Datum unbekannt"}
+                        </p>
+                        <p>
+                          <span className="font-semibold">Updated:</span>{" "}
+                          {robot.updatedAt
+                            ? new Date(robot.updatedAt).toLocaleDateString(
+                                "de-DE",
+                                {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric",
+                                }
+                              )
                             : "Datum unbekannt"}
                         </p>
                         <p>
@@ -185,7 +201,7 @@ const Details = () => {
             onClick={() => navigate("/")}
             className="btn btn-soft btn-secondary text-3xl font-orbitron font-extrabold"
           >
-            ← Zurück zur Homepage
+            ← Return to Homepage
           </button>
         </div>
       </div>
