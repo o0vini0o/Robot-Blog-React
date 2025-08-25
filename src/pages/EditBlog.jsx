@@ -6,12 +6,16 @@ export default function EditBlog() {
   const { id } = useParams();
   const { robots, fetchPostById, updatePost } = useContext(RobotsContext);
 
-  const [form, setForm] = useState({ title: "", content: "", cover: "" });
+  const [form, setForm] = useState({
+    title: "",
+    content: "",
+    cover: "",
+    youtubeURL: "",
+  });
   const [loading, setLoading] = useState(true);
   const [saved, setSaved] = useState(false);
 
-  
-    useEffect(() => {
+  useEffect(() => {
     const loadRobot = async () => {
       setLoading(true);
       try {
@@ -24,6 +28,7 @@ export default function EditBlog() {
             title: existing.title || "",
             content: existing.content || "",
             cover: existing.cover || existing.image || "",
+            youtubeURL: existing.youtubeURL || "",
           });
         }
       } catch (err) {
@@ -87,7 +92,7 @@ export default function EditBlog() {
             Edit robot post
           </h2>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-             <label className="form-control w-full">
+            <label className="form-control w-full">
               <span className="label-text font-semibold">Robot Title</span>
               <input
                 type="text"
@@ -102,6 +107,17 @@ export default function EditBlog() {
                 type="text"
                 value={form.cover}
                 onChange={(e) => setForm({ ...form, cover: e.target.value })}
+                className="input input-bordered w-full"
+              />
+            </label>
+            <label className="form-control w-full">
+              <span className="label-text font-semibold">Youtube URL</span>
+              <input
+                type="text"
+                value={form.youtubeURL}
+                onChange={(e) =>
+                  setForm({ ...form, youtubeURL: e.target.value })
+                }
                 className="input input-bordered w-full"
               />
             </label>

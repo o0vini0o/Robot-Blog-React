@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import useRobots from "../hooks/useRobots";
+import YoutubeEmbed from "../components/YoutobeEmbed";
 
 const Details = () => {
   const { id } = useParams();
@@ -174,6 +175,7 @@ const Details = () => {
                   </div>
                 </div>
               </div>
+              {robot.youtubeURL && <YoutubeEmbed url={robot.youtubeURL} />}
             </div>
 
             {/* Action Buttons */}

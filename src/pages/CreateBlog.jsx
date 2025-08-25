@@ -9,7 +9,7 @@ export default function CreateBlog() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.title || !form.content ) {
+    if (!form.title || !form.content) {
       alert("All fields must contain values");
       return;
     }
@@ -25,7 +25,11 @@ export default function CreateBlog() {
             <span>Post successfully created</span>
           </div>
         </div>
-        <Link to="/" replace className="btn btn-soft btn-secondary text-3xl font-orbitron font-extrabold">
+        <Link
+          to="/"
+          replace
+          className="btn btn-soft btn-secondary text-3xl font-orbitron font-extrabold"
+        >
           Back to Homepage
         </Link>
       </div>
@@ -54,6 +58,17 @@ export default function CreateBlog() {
               onChange={(e) => setForm({ ...form, cover: e.target.value })}
               className="input input-bordered w-full"
             />
+            <label className="form-control w-full">
+              <input
+                type="text"
+                placeholder="Youtube URL"
+                value={form.youtubeURL}
+                onChange={(e) =>
+                  setForm({ ...form, youtubeURL: e.target.value })
+                }
+                className="input input-bordered w-full"
+              />
+            </label>
             <textarea
               placeholder="Robot Content"
               value={form.content}
