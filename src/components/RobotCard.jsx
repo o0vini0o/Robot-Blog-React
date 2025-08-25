@@ -5,19 +5,21 @@ const RobotCard = ({ robot }) => {
 
   return (
     <div
-      className="card bg-secondary rounded-3xl hover:scale-105"
+      className="card bg-secondary rounded-3xl md:hover:scale-105"
       onClick={() => navigate(`/robots/${robot.id}`)}
     >
       <figure className="w-full h-56 overflow-hidden">
         <img
           src={robot.cover}
           alt={robot.title}
-          className="object-cover w-full h-full"
+          className="object-cover object-center w-full h-full"
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title font-orbitron">{robot.title}</h2>
-        <p className="text-white font-momo line-clamp-2 overflow-hidden leading-6">
+        <h2 className="card-title font-orbitron line-clamp-1 overflow-hidden">
+          {robot.title}
+        </h2>
+        <p className="text-white font-momo line-clamp-2 overflow-hidden break-words leading-6">
           {robot.content}
         </p>
       </div>
