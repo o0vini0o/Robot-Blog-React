@@ -39,7 +39,8 @@ export const RobotsContextProvider = ({ children }) => {
       body: JSON.stringify(post),
     });
     const newPost = await res.json();
-    setRobots((prev) => [...prev, newPost]);
+    // setRobots((prev) => [...prev, newPost]);
+    await fetchPosts();
     return newPost;
   };
 
@@ -50,7 +51,8 @@ export const RobotsContextProvider = ({ children }) => {
       body: JSON.stringify(post),
     });
     const updated = await res.json();
-    setRobots((prev) => prev.map((r) => (r.id === id ? updated : r)));
+    // setRobots((prev) => prev.map((r) => (r.id === id ? updated : r)));
+    await fetchPosts();
     return updated;
   };
 
